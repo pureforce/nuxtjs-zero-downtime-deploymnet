@@ -145,6 +145,27 @@ export PS1="\u > "
 *  \\     Literal Backslash
 *  \@     Time (12h format with am/pm)
 ```
+* You can also use PM2 to start java or other applications
+
+```csharp
+module.exports = {
+  apps : [{
+    name: 'Java-Backend',
+    cwd: ".",
+	script: '/usr/bin/java',
+    args: ["-jar", "/path/to/your/jar/file/SmartHome.jar"],
+    instances: 1,
+    autorestart: true,
+    watch: false,
+    max_memory_restart: '1G',
+    exact_mode: "fork",
+	error_file: 'java_backend_error.log',
+    out_file: 'java_backend_out.log',
+    log_file: 'java_backend_combined.log',
+    time: true
+  }]
+};
+```
 
 
 
